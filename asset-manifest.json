@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vod_master_sync/static/css/main.56be6320.css",
+    "main.js": "/vod_master_sync/static/js/main.3a0bcf09.js",
+    "static/media/SwerveLogo.png": "/vod_master_sync/static/media/SwerveLogo.426f56c48d9c2da92fe7.png",
+    "static/media/upload.svg": "/vod_master_sync/static/media/upload.3bcfaa479d228697e4419fe8da03f159.svg",
+    "index.html": "/vod_master_sync/index.html",
+    "main.56be6320.css.map": "/vod_master_sync/static/css/main.56be6320.css.map",
+    "main.3a0bcf09.js.map": "/vod_master_sync/static/js/main.3a0bcf09.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56be6320.css",
+    "static/js/main.3a0bcf09.js"
+  ]
+}
