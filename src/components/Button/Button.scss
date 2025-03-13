@@ -1,0 +1,38 @@
+.button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 16px 24px;
+    border-radius: 4px;
+
+    &.primary{
+        background-color: theme('colors.blue.primary');
+        color: theme('colors.white');
+    }
+    
+    &.secondary{
+        padding: 0;
+        border-radius: 0;
+        & p {
+            color: theme('colors.blue.secondary');
+            text-decoration: solid underline;
+            text-underline-offset: 2px;
+        }
+    }
+
+    &.grey {
+        background-color: theme('colors.grey.100');
+        
+        & p {
+            color: theme('colors.white');
+        }
+    }
+
+    &.disabled {
+        cursor: auto;
+        background-color: theme('colors.grey.300');
+
+        & p {
+            color: theme('colors.grey.100');
+        }
+    }
+}

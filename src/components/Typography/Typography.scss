@@ -1,0 +1,29 @@
+.title {
+    font-size: 32px;
+    color: theme('colors.blue.primary');
+}
+
+.subtitle {
+    
+}
+
+.body {
+    font-size: 16px;
+    font-weight: 100;
+    color: theme('colors.white');
+}
+
+.error {
+    font-size: 14px;
+    color: theme('colors.error');
+}
+
+.input-label {
+    font-size: 16px;
+    color: theme('colors.white');
+}
+
+.navLink {
+    font-size: 20px;
+    color: theme('colors.white');
+}

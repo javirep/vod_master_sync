@@ -1,0 +1,10 @@
+.checkbox-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.input-label.grey {
+    color: theme('colors.grey.100');
+}
