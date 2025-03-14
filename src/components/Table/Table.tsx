@@ -122,7 +122,7 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
                     </thead>
                     <tbody>
                         {rows.map((row, i) => (
-                            <tr key={i} className={classNames({'grey': i % 2 == 0})}>
+                            <tr key={i} className={classNames({'grey': i % 2 == 0})} onClick={() => handleSelectRows(row)}>
                                 {
                                     selectRow && <th><Checkbox label="" checked={row.selected ? true : false} onChange={()=>handleSelectRows(row)}/></th>
                                 }
