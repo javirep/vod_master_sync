@@ -39,8 +39,11 @@ export const MasterTrackerMaster: MasterType = {
     episode: {
         key: '# Episode',
     },
+    ratingSource: {
+        key: 'Rating Source',
+    },
     ratingValue: {
-        key: 'Self Rating',
+        key: 'Official Rating',
     },
     duration: {
         key: 'Duration',
@@ -77,6 +80,9 @@ export const MasterTrackerMaster: MasterType = {
     },
     guid: {
         key: 'Title GUID',
+    },
+    serieId: {
+        key: 'Series GUID',
     },
     slingId: {
         key: 'Sling ID',

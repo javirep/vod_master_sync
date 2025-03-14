@@ -72,8 +72,6 @@ const Page = ( ) => {
             if (video) video.selected = selected;
         })
 
-        console.log ({newVideos})
-
         setVideos(newVideos)
     }
 

@@ -41,8 +41,8 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
 
     const { rows, header, showCheckboxes=true, addButton, selectRow} = props; 
     const [colsToShow, setColsToShow] = React.useState<{[key: string]: boolean}>({});
-    const [rowsToShow, setRowsToShow] = React.useState<RowType[]>([]);
-    const [rowsPerPage, setRowsPerPage] = React.useState<number>(10);
+    //const [rowsToShow, setRowsToShow] = React.useState<RowType[]>([]);
+    //const [rowsPerPage, setRowsPerPage] = React.useState<number>(10);
     const [allBoxesChecked, setAllBoxesChecked] = React.useState<boolean>(false);
 
     useEffect(() => {
@@ -54,10 +54,10 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
     , []);
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         setRowsToShow(rows.slice(0, rowsPerPage));
     }
-    , [rows, rowsPerPage]);
+    , [rows, rowsPerPage]); */
 
 
     const handleCheckboxChange = (newCheckboxes: CheckboxType[]) => {
@@ -68,13 +68,13 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
         , {}));        
     };
 
-    const handleRowsPerPageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    /* const handleRowsPerPageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(parseInt(e.target.value));
-    };
+    }; */
 
-    const handlePageChange = (newRowsToShow) => {
+    /* const handlePageChange = (newRowsToShow) => {
         setRowsToShow(newRowsToShow);
-    }        
+    }    */     
 
     const getCheckBoxes = () => {
         return header.map((col, i) => {
@@ -84,7 +84,7 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
 
     const handleSelectAllRows = () => {
         setAllBoxesChecked(!allBoxesChecked);
-        selectRow && selectRow({rows: rowsToShow.map(row => row.id), selected: !allBoxesChecked});
+        selectRow && selectRow({rows: rows.map(row => row.id), selected: !allBoxesChecked});
     }
 
     const handleSelectRows = (row: RowType, forceSelect?) => {
@@ -121,7 +121,7 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {rowsToShow.map((row, i) => (
+                        {rows.map((row, i) => (
                             <tr key={i} className={classNames({'grey': i % 2 == 0})}>
                                 {
                                     selectRow && <th><Checkbox label="" checked={row.selected ? true : false} onChange={()=>handleSelectRows(row)}/></th>
@@ -146,9 +146,9 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
             <div className="table-footer">
                 <Typography type='body'>Total count: {rows.length}</Typography>
 
-                <TableIndexator itemsPerPage={rowsPerPage} totalItems={rows} onChange={handlePageChange} />
+                {/* <TableIndexator itemsPerPage={rowsPerPage} totalItems={rows} onChange={handlePageChange} />
                 
-                <NumberInput placeholder={rowsPerPage.toString()} labelText={'Results per Page: '} onChange={(e) => {handleRowsPerPageChange(e)}} />
+                <NumberInput placeholder={rowsPerPage.toString()} labelText={'Results per Page: '} onChange={(e) => {handleRowsPerPageChange(e)}} /> */}
             </div>
         </div>
     );

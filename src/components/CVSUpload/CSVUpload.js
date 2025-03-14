@@ -1,18 +1,13 @@
-'use client';
 
-//import Image from 'next/image';
 import React, { useCallback } from 'react';
 import Papa from 'papaparse';
 import { useDropzone } from 'react-dropzone';
 import uploadSvg from '../../assets/icons/upload.svg';
 import * as XLSX from 'xlsx';
-import { VideoModel } from '../../models/VideoModel';
 import Typography from '../Typography/Typography';
 import { MasterTrackerMaster } from '../../utils/masters/MasterTracker';
 
-/* type CSVUploadProps = {
-  addVideosFromCSVFile: (videos: VideoModel[]) => void;
-}; */
+import './CSVUpload.scss';
 
 const CSVUpload = (props) => {
 
@@ -67,8 +62,8 @@ const CSVUpload = (props) => {
   }, []);
 
   const extractRecipients = useCallback((data) => {
-    const truthyValues = ['true', 'yes', '1', 'y', 'TRUE', 'YES', 'Y'];
-    const falsyValues = ['false', 'no', '0', 'n', 'FALSE', 'NO', 'N'];
+    const truthyValues = ['true', 'yes', 'y', 'TRUE', 'YES', 'Y'];
+    const falsyValues = ['false', 'no', 'n', 'FALSE', 'NO', 'N'];
 
 
     const recipients = data.map((data, index) => {
@@ -97,18 +92,27 @@ const CSVUpload = (props) => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  const uploadIcon = <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.09 122.88" width={32} height={32}>
+    <title>file-upload</title>
+    <path 
+      className="cls-1"
+      d="M64.64,13,86.77,36.21H64.64V13ZM42.58,71.67a3.25,3.25,0,0,1-4.92-4.25l9.42-10.91a3.26,3.26,0,0,1,4.59-.33,5.14,5.14,0,0,1,.4.41l9.3,10.28a3.24,3.24,0,0,1-4.81,4.35L52.8,67.07V82.52a3.26,3.26,0,1,1-6.52,0V67.38l-3.7,4.29ZM24.22,85.42a3.26,3.26,0,1,1,6.52,0v7.46H68.36V85.42a3.26,3.26,0,1,1,6.51,0V96.14a3.26,3.26,0,0,1-3.26,3.26H27.48a3.26,3.26,0,0,1-3.26-3.26V85.42ZM99.08,39.19c.15-.57-1.18-2.07-2.68-3.56L63.8,1.36A3.63,3.63,0,0,0,61,0H6.62A6.62,6.62,0,0,0,0,6.62V116.26a6.62,6.62,0,0,0,6.62,6.62H92.46a6.62,6.62,0,0,0,6.62-6.62V39.19Zm-7.4,4.42v71.87H7.4V7.37H57.25V39.9A3.71,3.71,0,0,0,61,43.61Z"
+      fill="#000"
+    />
+  </svg>
+
   return (
-    <div className="flex flex-col md:flex-row justify-between gap-2 rounded-3xl bg-seaFoam-300 p-4 ">
+    <div className="csv-upload-container">
       <div
         {...getRootProps()}
-        className="cursor-pointer p-4 flex-1 border border-seaFoam-700 border-dashed rounded-3xl flex flex-col justify-center items-center"
+        className="csv-upload"
       >
         <input {...getInputProps()} />
         {isDragActive ? (
           <p>Drop the files here ...</p>
         ) : (
           <>
-            <img width={32} height={32} src={uploadSvg} alt="upload" />
+            {uploadIcon}
             <Typography
               type="body"
               className="mt-2"

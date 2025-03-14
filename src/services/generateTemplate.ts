@@ -38,8 +38,14 @@ const transform= (value: string, type: string, from: string, to: string) => {
     if (type === 'date') {
         return transformDate(value, from, to)
     }
-    if (type === 'territory') {
+    else if (type === 'territory') {
         return transformTerritory(value, from, to)
+    }
+    else if (type === 'type') {
+        return transformType(value, from, to)
+    }
+    else if (type === 'ratingSource') {
+        return transformRatingSource(value, from, to)
     }
 
     return value;
@@ -61,4 +67,20 @@ const transformTerritory = (territories: string, from: string, to: string) => {
         return territories.includes('CA') ? 'X' : ''
 
     return territories;
+}
+
+const transformType = (type: string, from: string, to: string) => {
+    if (to === 'Roku') {
+        if (type === 'Film') return 'movie'
+        if (type === 'Episode') return 'episode'
+        if (type === 'Combat') return 'episode'
+    }
+
+    return type;
+}
+
+const transformRatingSource = (rating: string, from: string, to: string) => {
+    if ( rating === 'Self-Rated') return 'USA_PR'
+    
+    return rating;
 }
